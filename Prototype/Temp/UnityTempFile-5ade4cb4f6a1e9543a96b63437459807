@@ -284,4 +284,5 @@
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
 Assets\Scripts\cameraController.cs
+Assets\Scripts\enemyController.cs
 Assets\Scripts\PlayerController.cs

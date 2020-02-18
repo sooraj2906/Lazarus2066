@@ -1,6 +1,6 @@
 /target:library
 /nowarn:0169
-/out:Temp/UnityEngine.TestRunner.dll
+/out:Temp/Assembly-CSharp.dll
 /debug:portable
 /optimize-
 /nostdlib+
@@ -67,13 +67,15 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/Managed/UnityEditor.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/Managed/UnityEditor.Graphs.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll"
-/reference:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
-/reference:D:/Works/Prototype/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.dll
+/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Rider.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/Microsoft.Win32.Primitives.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.3.0f5/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.AppContext.dll"
@@ -281,100 +283,6 @@
 /define:ENABLE_TIMELINE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\AssemblyInfo.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\AllocatingGCMemoryConstraint.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\ConstraintsExtensions.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\InvalidSignatureException.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\Is.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogAssert.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogScope\ILogScope.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogScope\LogEvent.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogScope\LogMatch.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogScope\LogScope.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\UnexpectedLogMessageException.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\UnhandledLogMessageException.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\UnityTestTimeoutException.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\ActionDelegator.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityCombinatorialStrategy.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityPlatformAttribute.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnitySetUpAttribute.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityTearDownAttribute.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityTestAttribute.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\BaseDelegator.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\BeforeAfterTestCommandBase.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\BeforeAfterTestCommandState.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableApplyChangesToContextCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableSetUpTearDownCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableTestMethodCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\ImmediateEnumerableCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\OuterUnityTestActionCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\SetUpTearDownCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\TestActionCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\TestCommandPcHelper.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\ConstructDelegator.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Filters\AssemblyNameFilter.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Filters\CategoryFilterExtended.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\IStateSerializer.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\CompositeWorkItem.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\CoroutineTestWorkItem.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\DefaultTestWorkItem.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\FailCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\IEnumerableTestMethodCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\PlaymodeWorkItemFactory.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\RestoreTestContextAfterDomainReload.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityLogCheckDelegatingCommand.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityTestAssemblyRunner.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityTestExecutionContext.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityWorkItem.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityWorkItemDataHolder.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\WorkItemFactory.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\TestExtensions.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\TestResultExtensions.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\UnityTestAssemblyBuilder.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Callbacks\PlayModeRunnerCallback.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Callbacks\RemoteTestResultSender.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRenderer.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRendererCallback.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\ITestRunnerListener.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Messages\IEditModeTestYieldInstruction.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\PlaymodeTestsController.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\PlaymodeTestsControllerSettings.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\IRemoteTestResultDataFactory.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\PlayerConnectionMessageIds.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestData.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestResultData.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestResultDataFactory.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestResultDataWithTestData.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\TestEnumeratorWrapper.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\TestListenerWrapper.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\TestPlatform.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\TestRunnerFilter.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\AssemblyLoadProxy.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\AssemblyWrapper.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\IAssemblyLoadProxy.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\IAssemblyWrapper.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\IScriptingRuntimeProxy.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\ITestAssemblyProvider.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\PlayerTestAssemblyProvider.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\ScriptingRuntimeProxy.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AttributeHelper.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\ColorEqualityComparer.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\CoroutineRunner.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\FloatEqualityComparer.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\IOuterUnityTestAction.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\IPostBuildCleanup.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\IPrebuildSceneSetup.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\MonoBehaviourTest\IMonoBehaviourTest.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\MonoBehaviourTest\MonoBehaviourTest.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\PostBuildCleanupAttribute.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\PrebuildSceneSetupAttribute.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\QuaternionEqualityComparer.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\StacktraceFilter.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Utils.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector2ComparerWithEqualsOperator.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector2EqualityComparer.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector3ComparerWithEqualsOperator.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector3EqualityComparer.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector4ComparerWithEqualsOperator.cs
-D:\Works\Prototype\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector4EqualityComparer.cs
+Assets\Scripts\cameraController.cs
+Assets\Scripts\enemyController.cs
+Assets\Scripts\PlayerController.cs
