@@ -4,27 +4,41 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 4.0f;
+    public int maxHealth = 100;
+    public int maxStamina = 100;
+    public float regeneration = 1.0f;
+    public float speed = 2.0f;
+    public float sprintSpeed = 4.0f;
     public float rotationSpeed = 100;
     public float gravity = 8;
     public float rot = 0f;
     public Vector3 moveDir = new Vector3(0, -10, 0);
     public Animator anim;
     public CharacterController charController;
+
+    private int currentHealth;
+    private int currentStamina;
+
     void Start()
     {
+        currentHealth = maxHealth;
+        currentStamina = maxStamina;
         charController = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        InvokeRepeating("Regenerate", 0.0f, 0.25f / regeneration);
     }
     
     void Update()
     {
+
         //Debug.Log(charController.isGrounded);
         //Punch
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && currentStamina > 10)
         {
             //Debug.Log("Mouse down");
             anim.SetTrigger("punch");
+            currentStamina -= 10;
+            //UIManager.instance.UpdateStamina(currentStamina);
         }
 
         if (charController.isGrounded)
@@ -37,6 +51,7 @@ public class PlayerController : MonoBehaviour
                 moveDir = new Vector3(0, -10, 1);
                 moveDir *= speed;
                 moveDir = transform.TransformDirection(moveDir);
+                
             }
             else
             {
@@ -45,11 +60,39 @@ public class PlayerController : MonoBehaviour
                 moveDir = new Vector3(0, -10, 0);
             }
 
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                anim.SetInteger("Sprint", 1);
+                moveDir *= sprintSpeed;
+            }
+            else
+            {
+                anim.SetInteger("Sprint", 0);
+            }
+
             rot += Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
             transform.eulerAngles = new Vector3(0, rot, 0);
             moveDir.y -= gravity * Time.deltaTime;
             charController.Move(moveDir * Time.deltaTime);
         }
-        
+
+        UIManager.instance.UpdateStamina(currentStamina);
+
     }
+
+    public void TookDamage(int damage)
+    {
+
+            currentHealth -= damage;
+            anim.SetTrigger("HitDamage");
+            UIManager.instance.UpdateHealth(currentHealth);
+
+    }
+
+    void Regenerate()
+    {
+        if (currentStamina < maxStamina)
+            currentStamina += 1;
+    }
+
 }
