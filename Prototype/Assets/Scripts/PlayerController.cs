@@ -31,53 +31,75 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        //Debug.Log(charController.isGrounded);
-        //Punch
-        if (Input.GetMouseButtonDown(0) && currentStamina > 10)
+        //uses the p button to pause and unpause the game
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //Debug.Log("Mouse down");
-            anim.SetTrigger("punch");
-            currentStamina -= 10;
-            //UIManager.instance.UpdateStamina(currentStamina);
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                //showPaused();
+            }
+            else if (Time.timeScale == 0)
+            {
+                Debug.Log("high");
+                Time.timeScale = 1;
+                //hidePaused();
+            }
         }
 
-        if (charController.isGrounded)
+        if (Time.timeScale == 1)
         {
-            //Movement
-            if (Input.GetKey(KeyCode.W))
+
+
+
+            //Debug.Log(charController.isGrounded);
+            //Punch
+            if (Input.GetMouseButtonDown(0) && currentStamina > 10)
             {
-                //Debug.Log("W down");
-                anim.SetInteger("Condition", 1);
-                moveDir = new Vector3(0, -10, 1);
-                moveDir *= speed;
-                moveDir = transform.TransformDirection(moveDir);
-                
-            }
-            else
-            {
-                //Debug.Log("W up");
-                anim.SetInteger("Condition", 0);
-                moveDir = new Vector3(0, -10, 0);
+                //Debug.Log("Mouse down");
+                anim.SetTrigger("punch");
+                currentStamina -= 10;
+                //UIManager.instance.UpdateStamina(currentStamina);
             }
 
-            if(Input.GetKey(KeyCode.LeftShift))
+            if (charController.isGrounded)
             {
-                anim.SetInteger("Sprint", 1);
-                moveDir *= sprintSpeed;
-            }
-            else
-            {
-                anim.SetInteger("Sprint", 0);
+                //Movement
+                if (Input.GetKey(KeyCode.W))
+                {
+                    //Debug.Log("W down");
+                    anim.SetInteger("Condition", 1);
+                    moveDir = new Vector3(0, -10, 1);
+                    moveDir *= speed;
+                    moveDir = transform.TransformDirection(moveDir);
+
+                }
+                else
+                {
+                    //Debug.Log("W up");
+                    anim.SetInteger("Condition", 0);
+                    moveDir = new Vector3(0, -10, 0);
+                }
+
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    anim.SetInteger("Sprint", 1);
+                    moveDir *= sprintSpeed;
+                }
+                else
+                {
+                    anim.SetInteger("Sprint", 0);
+                }
+
+                rot += Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+                transform.eulerAngles = new Vector3(0, rot, 0);
+                moveDir.y -= gravity * Time.deltaTime;
+                charController.Move(moveDir * Time.deltaTime);
             }
 
-            rot += Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
-            transform.eulerAngles = new Vector3(0, rot, 0);
-            moveDir.y -= gravity * Time.deltaTime;
-            charController.Move(moveDir * Time.deltaTime);
+            UIManager.instance.UpdateStamina(currentStamina);
+
         }
-
-        UIManager.instance.UpdateStamina(currentStamina);
-
     }
 
     public void TookDamage(int damage)
