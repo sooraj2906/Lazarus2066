@@ -9,10 +9,12 @@ public class cameraController : MonoBehaviour
     public bool isRotate = true;
     public float rotateSpeed = 5.0f;
     private Vector3 offset;
+    private bool firstHit = false;
     RaycastHit oldHit;
     void Start()
     {
         offset = transform.position - player.transform.position;
+        firstHit = false;
     }
 
     void Update()
@@ -22,41 +24,52 @@ public class cameraController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(this.transform.position, (playerHead.transform.position - this.transform.position), out hit, characterDistance))
         {
-            if (oldHit.transform && hit.transform.name != "Player")
+            if (oldHit.transform && hit.transform.name != "Player" && firstHit == true|| hit.transform.name == "Player" && firstHit == true)
             {
                 //oldHit.collider.GetComponent<Renderer>().enabled = true;
                 Renderer rend = oldHit.collider.GetComponent<Renderer>();
-                rend.sharedMaterial.SetFloat("_Mode", 0);
-                rend.sharedMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
-                rend.sharedMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
-                rend.sharedMaterial.SetInt("_ZWrite", 1);
-                rend.sharedMaterial.DisableKeyword("_ALPHATEST_ON");
-                rend.sharedMaterial.DisableKeyword("_ALPHABLEND_ON");
-                rend.sharedMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                rend.sharedMaterial.renderQueue = -1;
-                Color col = rend.sharedMaterial.color;
-                col.a = 1;
-                rend.sharedMaterial.SetColor("_Color", col);
-                Debug.Log("Enabled");
+                Material[] myMaterials;
+                myMaterials = rend.materials;
+                for (int i = 0; i < myMaterials.Length; i++)
+                {
+                    myMaterials[i].SetFloat("_Mode", 0);
+                    myMaterials[i].SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                    myMaterials[i].SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                    myMaterials[i].SetInt("_ZWrite", 1);
+                    myMaterials[i].DisableKeyword("_ALPHATEST_ON");
+                    myMaterials[i].DisableKeyword("_ALPHABLEND_ON");
+                    myMaterials[i].DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                    myMaterials[i].renderQueue = -1;
+                    Color col = myMaterials[i].color;
+                    col.a = 1;
+                    myMaterials[i].SetColor("_Color", col);
+                    //Debug.Log("Enabled");
+                }
             }
             
             if (hit.transform.name != "Player")
             {
+                firstHit = true;
                 //hit.collider.GetComponent<Renderer>().enabled = false;
                 Renderer rend = hit.collider.GetComponent<Renderer>();
-                rend.sharedMaterial.SetFloat("_Mode", 3);
-                rend.sharedMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
-                rend.sharedMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                rend.sharedMaterial.SetInt("_ZWrite", 0);
-                rend.sharedMaterial.DisableKeyword("_ALPHATEST_ON");
-                rend.sharedMaterial.DisableKeyword("_ALPHABLEND_ON");
-                rend.sharedMaterial.EnableKeyword("_ALPHAPREMULTIPLY_ON");
-                rend.sharedMaterial.renderQueue = 3000;
-                Color col = rend.sharedMaterial.color;
-                col.a = 0.1f;
-                rend.sharedMaterial.SetColor("_Color", col);
-                Debug.Log("Disabled");
-                oldHit = hit;
+                Material[] myMaterials;
+                myMaterials = rend.materials;
+                for (int i = 0; i < myMaterials.Length; i++)
+                {
+                    myMaterials[i].SetFloat("_Mode", 3);
+                    myMaterials[i].SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                    myMaterials[i].SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                    myMaterials[i].SetInt("_ZWrite", 0);
+                    myMaterials[i].DisableKeyword("_ALPHATEST_ON");
+                    myMaterials[i].DisableKeyword("_ALPHABLEND_ON");
+                    myMaterials[i].EnableKeyword("_ALPHAPREMULTIPLY_ON");
+                    myMaterials[i].renderQueue = 3000;
+                    Color col = myMaterials[i].color;
+                    col.a = 0.1f;
+                    myMaterials[i].SetColor("_Color", col);
+                    //Debug.Log("Disabled");
+                    oldHit = hit;
+                }
             }
         }
     }

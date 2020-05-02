@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private int maxHealth = 100;
+    public int maxHealth = 100;
     [SerializeField]private float speed = 2.0f;
     [SerializeField] private float sprintSpeed = 4.0f;
-    private int maxStamina = 100;
+    public int maxStamina = 100;
     private float regen = 0.5f;
-    private float rotationSpeed = 100;
+    public float rotationSpeed = 100;
     private float gravity = 8;
     private float rot = 0f;
     private bool isPaused = false;
@@ -18,16 +18,17 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private CharacterController charController;
     private Rigidbody rb;
-    private Interactable interactable;
+    public Interactable interactable;
+    public UIManager uiManager;
     private Camera cam;
-    public GameObject pauseMenu;
 
-    private int currentHealth;
-    private int currentStamina;
+    public int currentHealth;
+    public int currentStamina;
 
     void Start()
     {
         charController = GetComponent<CharacterController>();
+        uiManager = FindObjectOfType<UIManager>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.P))
             {
-                Pause(true);
+                
             }
 
             charController.Move(Vector3.forward * 0.001f);
@@ -51,9 +52,7 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("Mouse down");
                 anim.SetTrigger("punch");
             }
-
-            //if (charController.isGrounded)
-            // {
+            
             //Movement
             if (Input.GetKey(KeyCode.W))
             {
@@ -70,6 +69,23 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("W up");
                 anim.SetInteger("Condition", 0);
                 moveDir = new Vector3(0, -10, 0);
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                // We create a ray
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                // If the ray hits
+                if (Physics.Raycast(ray, out hit, 100))
+                {
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        //SetFocus(interactable);
+                    }
+                }
             }
 
             if (Input.GetKey(KeyCode.Space))
@@ -91,47 +107,31 @@ public class PlayerController : MonoBehaviour
                 anim.Play("FrontFlip");
             }
 
-            rot += Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
-            transform.eulerAngles = new Vector3(0, rot, 0);
-
+            rot = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+            transform.Rotate(0, rot, 0);
             charController.Move(moveDir * Time.deltaTime);
         }
         else if(isPaused == true)
         {
             if(Input.GetKey(KeyCode.P))
             {
-                Pause(false);
+                
             }
         }
         
     }
 
-    private void Pause(bool pause)
-    {
-        if(pause==true)
-        {
-            pauseMenu.SetActive(true);
-            Time.timeScale = 0;
-            isPaused = true;
-        }
-        else
-        {
-            pauseMenu.SetActive(false);
-            Time.timeScale = 1;
-            isPaused = false;
-        }
-    }
-    
-
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
-        if (other.gameObject.name == "level5Collider")
+
+        if (other.transform.name == "HandCollider")
         {
-            //Destroy(level5.gameObject);
+            Debug.Log(other.gameObject.name);
+            currentHealth -= 10;
+            uiManager.UpdateHealth(currentHealth);
         }
     }
-    
+
 
     IEnumerator Wait()
     {
